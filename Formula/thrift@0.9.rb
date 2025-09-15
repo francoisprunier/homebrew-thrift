@@ -15,7 +15,7 @@ class ThriftAT09 < Formula
     depends_on "libtool" => :build
     depends_on "openssl@3" => :build # for `openssl/err.h`
     depends_on "pkg-config" => :build
-    depends_on "boost"
+    #depends_on "boost"
   
     uses_from_macos "flex" => :build
   
@@ -33,6 +33,7 @@ class ThriftAT09 < Formula
   
     def install
       args = %w[
+        --without-boost
         --without-erlang
         --without-haskell
         --without-java

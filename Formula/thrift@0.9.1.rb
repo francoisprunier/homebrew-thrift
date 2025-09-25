@@ -52,8 +52,8 @@ class ThriftAT091 < Formula
       ENV["JAVA_PREFIX"] = pkgshare/"java"
   
       # 0.9.3.1 shipped with a syntax error...
-      inreplace "configure.ac", "if test \"$have_cpp\" = \"yes\" ; then\nAC_TYPE_INT16_T",
-                                "AC_TYPE_INT16_T"
+#      inreplace "configure.ac", "if test \"$have_cpp\" = \"yes\" ; then\nAC_TYPE_INT16_T",
+#                               "AC_TYPE_INT16_T"
   
       # We need to regenerate the configure script since it doesn't have all the changes.
       system "./bootstrap.sh"

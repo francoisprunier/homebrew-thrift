@@ -1,4 +1,4 @@
-class ThriftAT09 < Formula
+class ThriftAT0931 < Formula
     desc "Framework for scalable cross-language services development"
     homepage "https://thrift.apache.org"
     url "https://github.com/apache/thrift/archive/refs/tags/0.9.3.1.tar.gz"

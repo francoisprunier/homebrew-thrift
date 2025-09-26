@@ -21,7 +21,7 @@ class ThriftAT091 < Formula
   
     # Fix clang compile error
     patch do
-      url "https://github.com/apache/thrift/commit/111e62d2a6ead1e325b7ecdb696f1bdea90c4aab.patch?full_index=1"
+      url "https://github.com/francoisprunier/thrift/commit/111e62d2a6ead1e325b7ecdb696f1bdea90c4aab.patch?full_index=1"
       sha256 "e9c6680b17d9da5611282f8729ea02d4c27a994cefcca8eaf0b5a461e215de3d"
     end
   

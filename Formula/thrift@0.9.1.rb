@@ -19,17 +19,11 @@ class ThriftAT091 < Formula
   
     uses_from_macos "flex" => :build
   
-    # Fix CRYPTO_num_locks compile error
-    #patch do
-    #  url "https://github.com/apache/thrift/commit/4bbfe6120e71b81df7f23dcc246990c29eb27859.patch?full_index=1"
-    #  sha256 "23b29d50cd606b88863153ec8ae1c7b3e1ef0fceca7ec59088b8135f40b99ce6"
-    #end
-  
-    # Fix compile when SSLv3 is disabled (OpenSSL 1.1)
-    #patch do
-    #  url "https://github.com/apache/thrift/commit/b819260c653f6fd9602419ee2541060ecb930c4c.patch?full_index=1"
-    #  sha256 "5934555674b67fb7a9fad04ffe0bd46fdbe3eca5e8f98dd072efa4bb342c9bfa"
-    #end
+    # Fix clang compile error
+    patch do
+      url "https://github.com/apache/thrift/commit/111e62d2a6ead1e325b7ecdb696f1bdea90c4aab.patch?full_index=1"
+      sha256 "e9c6680b17d9da5611282f8729ea02d4c27a994cefcca8eaf0b5a461e215de3d"
+    end
   
     def install
       args = %w[
@@ -50,10 +44,6 @@ class ThriftAT091 < Formula
   
       # Don't install extensions to /usr
       ENV["JAVA_PREFIX"] = pkgshare/"java"
-  
-      # 0.9.3.1 shipped with a syntax error...
-#      inreplace "configure.ac", "if test \"$have_cpp\" = \"yes\" ; then\nAC_TYPE_INT16_T",
-#                               "AC_TYPE_INT16_T"
   
       # We need to regenerate the configure script since it doesn't have all the changes.
       system "./bootstrap.sh"
